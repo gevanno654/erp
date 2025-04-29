@@ -25,7 +25,7 @@
     <div class="flex">
         <!-- Sidebar -->
         <div class="bg-gray-800 text-white w-64 min-h-screen p-4">
-            <h1 class="text-2xl font-bold mb-6 coba">ERP System</h1>
+            <h1 class="text-2xl font-bold mb-6">ERP System</h1>
             <ul>
                 <li class="mb-2">
                     <a href="{{ route('dashboard') }}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
@@ -45,6 +45,9 @@
                 <li class="mb-2">
                     <a href="{{ route('restocks.index') }}" class="block py-2 px-4 hover:bg-gray-700">Restock</a>
                 </li>
+                <li class="mb-2">
+                    <a href="{{ route('jurnal.month') }}" class="block py-2 px-4 hover:bg-gray-700">Jurnal</a>
+                </li>
                 {{-- <li class="mb-2">
                     <a href="{{ route('inventories.product') }}" class="block py-2 px-4 hover:bg-gray-700">Product</a>
                 </li> --}}
@@ -61,5 +64,6 @@
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-mask@1.0.0/dist/alpine-mask.min.js"></script>
 </body>
 </html>

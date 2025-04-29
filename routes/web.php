@@ -8,6 +8,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\WorkShiftController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RestockController;
+use App\Http\Controllers\JurnalController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -45,4 +46,14 @@ Route::middleware('auth')->group(function () {
     // Restocks
     Route::resource('restocks', RestockController::class);
     Route::put('/restocks/{id}/update-status', [RestockController::class, 'updateStatus'])->name('restocks.update-status');
+
+    Route::prefix('jurnal')->group(function () {
+        Route::get('/', [JurnalController::class, 'month'])->name('jurnal.month');
+        Route::get('/{monthYear}', [JurnalController::class, 'index'])->name('jurnal.index');
+        Route::get('/{monthYear}/create', [JurnalController::class, 'create'])->name('jurnal.create');
+        Route::post('/', [JurnalController::class, 'store'])->name('jurnal.store');
+        Route::get('/{jurnal}/edit', [JurnalController::class, 'edit'])->name('jurnal.edit');
+        Route::put('/{jurnal}', [JurnalController::class, 'update'])->name('jurnal.update');
+        Route::delete('/{jurnal}', [JurnalController::class, 'destroy'])->name('jurnal.destroy');
+    });
 });
