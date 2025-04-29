@@ -48,6 +48,9 @@
                 <li class="mb-2">
                     <a href="{{ route('jurnal.month') }}" class="block py-2 px-4 hover:bg-gray-700">Jurnal</a>
                 </li>
+                <li class="mb-2">
+                    <a href="{{ route('penggajian.month') }}" class="block py-2 px-4 hover:bg-gray-700">Penggajian</a>
+                </li>
                 {{-- <li class="mb-2">
                     <a href="{{ route('inventories.product') }}" class="block py-2 px-4 hover:bg-gray-700">Product</a>
                 </li> --}}

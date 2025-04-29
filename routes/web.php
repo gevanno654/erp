@@ -9,6 +9,7 @@ use App\Http\Controllers\WorkShiftController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RestockController;
 use App\Http\Controllers\JurnalController;
+use App\Http\Controllers\SalaryController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -55,5 +56,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/{jurnal}/edit', [JurnalController::class, 'edit'])->name('jurnal.edit');
         Route::put('/{jurnal}', [JurnalController::class, 'update'])->name('jurnal.update');
         Route::delete('/{jurnal}', [JurnalController::class, 'destroy'])->name('jurnal.destroy');
+    });
+
+    Route::prefix('penggajian')->group(function () {
+        Route::get('/', [SalaryController::class, 'month'])->name('penggajian.month');
+        Route::get('/{monthYear}', [SalaryController::class, 'index'])->name('penggajian.index');
+        Route::get('/{monthYear}/create', [SalaryController::class, 'create'])->name('penggajian.create');
+        Route::post('/', [SalaryController::class, 'store'])->name('penggajian.store');
+        Route::get('/{salary}/edit', [SalaryController::class, 'edit'])->name('penggajian.edit');
+        Route::put('/{salary}', [SalaryController::class, 'update'])->name('penggajian.update');
+        Route::delete('/{salary}', [SalaryController::class, 'destroy'])->name('penggajian.destroy');
     });
 });
