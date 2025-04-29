@@ -69,6 +69,11 @@ class Employee extends Model
                     ->withPivot('deleted_at');
     }
 
+    public function restocks()
+    {
+        return $this->hasMany(Restock::class, 'employee_id');
+    }
+
     public function payrolls()
     {
         return $this->hasMany(Payroll::class);

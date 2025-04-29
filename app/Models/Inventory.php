@@ -2,16 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
+    use HasFactory;
+
+    // Nama tabel yang digunakan
+    protected $table = 'inventories';
+
+    // Kolom yang dapat diisi (fillable)
     protected $fillable = [
-        'name',
-        'location',
-        'name_product',
-        'type_product',
-        'stock_amount',
+        'name_items',
+        'type_items',
+        'items_stock',
         'updated_stock_date',
     ];
 }

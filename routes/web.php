@@ -6,6 +6,8 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\WorkShiftController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\RestockController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -36,4 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('attendances', AttendanceController::class);
     Route::post('/attendances/check-in', [AttendanceController::class, 'checkIn'])->name('attendances.checkIn');
     Route::post('/attendances/check-out', [AttendanceController::class, 'checkOut'])->name('attendances.checkOut');
+
+    // Inventories
+    Route::resource('inventories', InventoryController::class);
+
+    // Restocks
+    Route::resource('restocks', RestockController::class);
+    Route::put('/restocks/{id}/update-status', [RestockController::class, 'updateStatus'])->name('restocks.update-status');
 });

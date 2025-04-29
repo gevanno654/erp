@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERP Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+        select.status-dropdown:disabled {
+            background-color: #f3f4f6;
+            color: #6b7280;
+            cursor: not-allowed;
+            opacity: 1; /* Override default opacity */
+        }
+
+        select.status-dropdown:disabled option {
+            color: #6b7280;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <div class="flex">
         <!-- Sidebar -->
         <div class="bg-gray-800 text-white w-64 min-h-screen p-4">
-            <h1 class="text-2xl font-bold mb-6">ERP System</h1>
+            <h1 class="text-2xl font-bold mb-6 coba">ERP System</h1>
             <ul>
                 <li class="mb-2">
                     <a href="{{ route('dashboard') }}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
@@ -25,6 +39,15 @@
                 <li class="mb-2">
                     <a href="{{ route('work-shifts.index') }}" class="block py-2 px-4 hover:bg-gray-700">Work Shifts</a>
                 </li>
+                <li class="mb-2">
+                    <a href="{{ route('inventories.index') }}" class="block py-2 px-4 hover:bg-gray-700">Inventories</a>
+                </li>
+                <li class="mb-2">
+                    <a href="{{ route('restocks.index') }}" class="block py-2 px-4 hover:bg-gray-700">Restock</a>
+                </li>
+                {{-- <li class="mb-2">
+                    <a href="{{ route('inventories.product') }}" class="block py-2 px-4 hover:bg-gray-700">Product</a>
+                </li> --}}
                 <!-- Tambahkan menu lain di sini -->
             </ul>
         </div>
