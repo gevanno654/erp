@@ -41,10 +41,13 @@
                     <a href="{{ route('work-shifts.index') }}" class="block py-2 px-4 hover:bg-gray-700">Work Shifts</a>
                 </li>
                 <li class="mb-2">
-                    <a href="{{ route('inventories.index') }}" class="block py-2 px-4 hover:bg-gray-700">Inventories</a>
+                    <a href="{{ route('assets.index') }}" class="block py-2 px-4 hover:bg-gray-700">Assets</a>
                 </li>
                 <li class="mb-2">
                     <a href="{{ route('products.index') }}" class="block py-2 px-4 hover:bg-gray-700">Products</a>
+                </li>
+                <li class="mb-2">
+                    <a href="{{ route('restocks.index') }}" class="block py-2 px-4 hover:bg-gray-700">Restock</a>
                 </li>
                 <li class="mb-2">
                     <a href="{{ route('mitra.index') }}" class="block py-2 px-4 hover:bg-gray-700">Mitra</a>

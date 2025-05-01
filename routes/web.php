@@ -6,7 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\WorkShiftController;
-use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\RestockController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\SalaryController;
@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/attendances/check-in', [AttendanceController::class, 'checkIn'])->name('attendances.checkIn');
     Route::post('/attendances/check-out', [AttendanceController::class, 'checkOut'])->name('attendances.checkOut');
 
-    // Inventories
-    Route::resource('inventories', InventoryController::class);
+    // Assets
+    Route::resource('assets', AssetController::class);
 
     // Restocks
     Route::resource('restocks', RestockController::class);

@@ -13,16 +13,16 @@ class Restock extends Model
     protected $table = 'restocks';
 
     protected $fillable = [
-        'id_items',
+        'product_id', // Changed from id_items
         'employee_id',
         'restock_amount',
         'date',
         'status',
     ];
 
-    public function inventory()
+    public function product() // Changed from inventory
     {
-        return $this->belongsTo(Inventory::class, 'id_items');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function employee()
