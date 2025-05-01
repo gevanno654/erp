@@ -6,25 +6,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Order extends Model
+class Logistic extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'invoice_number',
+        'fleet_number',
+        'order_id',
         'order_date',
         'estimated_completion_date',
         'mitra_id',
+        'destination_address',
         'product_id',
-        'quantity',
-        'total_price',
-        'status',
-        'remaining_quantity'
+        'delivered_quantity',
+        'departure_time',
+        'delivered_time',
+        'status'
     ];
 
     protected $dates = [
         'order_date',
         'estimated_completion_date',
+        'departure_time',
+        'delivered_time',
         'created_at',
         'updated_at',
         'deleted_at'
@@ -32,8 +36,15 @@ class Order extends Model
 
     protected $casts = [
         'order_date' => 'date',
-        'estimated_completion_date' => 'date'
+        'estimated_completion_date' => 'date',
+        'departure_time' => 'datetime',
+        'delivered_time' => 'datetime',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 
     public function mitra()
     {
@@ -43,19 +54,5 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
-    }
-
-    public function logistics()
-    {
-        return $this->hasMany(Logistic::class);
-    }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($order) {
-            $order->remaining_quantity = $order->quantity;
-        });
     }
 }

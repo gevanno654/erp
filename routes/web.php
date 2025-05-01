@@ -10,6 +10,10 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RestockController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MitraController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\LogisticController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -67,4 +71,16 @@ Route::middleware('auth')->group(function () {
         Route::put('/{salary}', [SalaryController::class, 'update'])->name('penggajian.update');
         Route::delete('/{salary}', [SalaryController::class, 'destroy'])->name('penggajian.destroy');
     });
+
+    Route::resource('products', ProductController::class)->except(['show']);
+
+    Route::resource('mitra', MitraController::class)->except(['show']);
+
+    // Routes untuk Orders
+    Route::resource('orders', OrderController::class)->except(['show']);
+    Route::post('/orders/{order}/update-status', [OrderController::class, 'updateStatus'])->name('orders.update-status');
+
+    // Routes untuk Logistics
+    Route::resource('logistics', LogisticController::class)->except(['show']);
+    Route::post('/logistics/{logistic}/complete-delivery', [LogisticController::class, 'completeDelivery'])->name('logistics.complete-delivery');
 });
