@@ -58,9 +58,9 @@
                 <li class="mb-2">
                     <a href="{{ route('logistics.index') }}" class="block py-2 px-4 hover:bg-gray-700">Logistik</a>
                 </li>
-                <li class="mb-2">
+                {{-- <li class="mb-2">
                     <a href="{{ route('restocks.index') }}" class="block py-2 px-4 hover:bg-gray-700">Restock</a>
-                </li>
+                </li> --}}
                 <li class="mb-2">
                     <a href="{{ route('jurnal.month') }}" class="block py-2 px-4 hover:bg-gray-700">Jurnal</a>
                 </li>

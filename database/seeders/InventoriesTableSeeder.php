@@ -104,6 +104,6 @@ class InventoriesTableSeeder extends Seeder
         ];
 
         // Insert data ke tabel inventories
-        DB::table('inventories')->insert($inventories);
+        DB::table('assets')->insert($inventories);
     }
 }
